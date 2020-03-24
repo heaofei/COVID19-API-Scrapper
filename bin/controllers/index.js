@@ -1,10 +1,13 @@
 const aceh = async (req, res) => {
     const data = require('../lib/utils/getDataAceh')
     let getData = await data.getDataAceh()
-    res.json({
-        data: getData.data,
-        update: getData.date
-    })
+    res.json({ data: getData.data, update: getData.date })
+}
+
+const banten = async (req, res) => {
+    const data = require('../lib/utils/getDataBanten')
+    let getData = await data.getDataBanten()
+    res.json({ data: getData })
 }
 
 const jatim = async (req, res) => {
@@ -33,6 +36,7 @@ const ntb = async (req, res) => {
 
 module.exports = {
     aceh,
+    banten,
     jatim,
     jateng,
     jabar,
