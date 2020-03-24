@@ -10,8 +10,8 @@ const getDataJatim = () => new Promise((resolve, reject) => {
             $('tbody > tr').each(function(i, e) {
                 tempDataAll.push({
                     lokasi: $($(e).find('td')[0]).text(),
-                    odp: $($(e).find('td')[1]).text(),
-                    pdp: $($(e).find('td')[2]).text(),
+                    total_odp: $($(e).find('td')[1]).text(),
+                    total_pdp: $($(e).find('td')[2]).text(),
                     terkonfirmasi: $($(e).find('td')[3]).text(),
                     update: $($(e).find('td')[4]).text()
                 })

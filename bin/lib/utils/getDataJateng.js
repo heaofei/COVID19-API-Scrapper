@@ -7,8 +7,8 @@ const getDataJateng = () => new Promise((resolve, reject) => {
         .then(result => {
             const $ = cheerio.load(result)
             resolve({
-                odp: $('p.card-text[style="color:green;"]').text(),
-                pdp: $('p.card-text[style="color:#0373fc;"]').text(),
+                total_odp: $('p.card-text[style="color:green;"]').text(),
+                total_pdp: $('p.card-text[style="color:#0373fc;"]').text(),
                 terkonfirmasi: $('p.card-text[style="color:red;"]').html(),
                 update: $('div.section-title > b').html().replace('Update Terakhir : ', '').replace(' (Data dapat berubah sewaktu-waktu)', ''),
             })

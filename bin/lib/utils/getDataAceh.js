@@ -9,8 +9,8 @@ const getDataAceh = () => new Promise((resolve, reject) => {
             result.data.rows.map(arr => {
                 tempDataAll.push({
                     lokasi: arr[0],
-                    odp: arr[1],
-                    pdp: arr[2]
+                    total_odp: arr[1],
+                    total_pdp: arr[2]
                 })
             })
 

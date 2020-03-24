@@ -10,16 +10,12 @@ const getDataNTB = () => new Promise((resolve, reject) => {
             $('tbody > tr').each(function(i, e) {
                 tempDataAll.push({
                     lokasi: $($(e).find('td')[0]).text().replace('/\n/g', '').replace(/\s+/g, ' ').replace(/^ +/, ''),
-                    odp: [{
-                        total: $($(e).find('td')[5]).text().replace('/\n/g', '').replace(/\s+/g, ''),
-                        selesai_dalam_pantauan: $($(e).find('td')[6]).text().replace('/\n/g', '').replace(/\s+/g, ''),
-                        masih_dalam_pantauan: $($(e).find('td')[7]).text().replace('/\n/g', '').replace(/\s+/g, ''),
-                    }],
-                    pdp: [{
-                        total: $($(e).find('td')[2]).text().replace('/\n/g', '').replace(/\s+/g, ''),
-                        selesai_dalam_pengawasan: $($(e).find('td')[3]).text().replace('/\n/g', '').replace(/\s+/g, ''),
-                        masih_dalam_pengawasan: $($(e).find('td')[4]).text().replace('/\n/g', '').replace(/\s+/g, ''),
-                    }]
+                    total_odp: $($(e).find('td')[5]).text().replace('/\n/g', '').replace(/\s+/g, ''),
+                    selesai_pemantauan: $($(e).find('td')[6]).text().replace('/\n/g', '').replace(/\s+/g, ''),
+                    proses_pemantauan: $($(e).find('td')[7]).text().replace('/\n/g', '').replace(/\s+/g, ''),
+                    total_pdp: $($(e).find('td')[2]).text().replace('/\n/g', '').replace(/\s+/g, ''),
+                    selesai_pengawasan: $($(e).find('td')[3]).text().replace('/\n/g', '').replace(/\s+/g, ''),
+                    proses_pengawasan: $($(e).find('td')[4]).text().replace('/\n/g', '').replace(/\s+/g, '')
                 })
             })
             resolve(tempDataAll)
