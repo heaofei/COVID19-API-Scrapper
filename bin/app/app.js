@@ -14,7 +14,8 @@ function AppServer() {
             { "lokasi": "ACEH", "link": `${req.protocol}://${req.get('host')}/aceh` },
             { "lokasi": "JAWA TIMUR", "link": `${req.protocol}://${req.get('host')}/jatim` },
             { "lokasi": "JAWA TENGAH", "link": `${req.protocol}://${req.get('host')}/jateng` },
-            { "lokasi": "JAWA BARAT", "link": `${req.protocol}://${req.get('host')}/jabar` }
+            { "lokasi": "JAWA BARAT", "link": `${req.protocol}://${req.get('host')}/jabar` },
+            { "lokasi": "NUSA TENGGARA BARAT", "link": `${req.protocol}://${req.get('host')}/ntb` }
         ])
     })
 
@@ -22,6 +23,7 @@ function AppServer() {
     this.app.route('/jatim').get(controllerGetData.jatim)
     this.app.route('/jateng').get(controllerGetData.jateng)
     this.app.route('/jabar').get(controllerGetData.jabar)
+    this.app.route('/ntb').get(controllerGetData.ntb)
 }
 
 module.exports = AppServer

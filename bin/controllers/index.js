@@ -25,9 +25,16 @@ const jabar = async (req, res) => {
     res.json({ data: getData })
 }
 
+const ntb = async (req, res) => {
+    const data = require('../lib/utils/getDataNTB')
+    let getData = await data.getDataNTB()
+    res.json({ data: getData })
+}
+
 module.exports = {
     aceh,
     jatim,
     jateng,
-    jabar
+    jabar,
+    ntb
 }
