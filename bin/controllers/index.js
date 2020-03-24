@@ -34,6 +34,12 @@ const jabar = async (req, res) => {
     res.json({ data: getData })
 }
 
+const lampung = async (req, res) => {
+    const data = require('../lib/utils/getDataLampung')
+    let getData = await data.getDataLampung()
+    res.json({ data: getData })
+}
+
 const ntb = async (req, res) => {
     const data = require('../lib/utils/getDataNTB')
     let getData = await data.getDataNTB()
@@ -47,5 +53,6 @@ module.exports = {
     jatim,
     jateng,
     jabar,
+    lampung,
     ntb
 }

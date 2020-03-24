@@ -1,5 +1,4 @@
 const fetch = require('node-fetch');
-const cheerio = require('cheerio');
 const moment = require('moment');
 
 const getDataJabar = () => new Promise((resolve, reject) => {
