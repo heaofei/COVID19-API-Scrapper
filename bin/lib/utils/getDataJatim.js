@@ -5,32 +5,17 @@ const getDataJatim = () => new Promise((resolve, reject) => {
     fetch('http://covid19dev.jatimprov.go.id/xweb/draxi', { method: 'GET' })
         .then(res => res.text())
         .then(result => {
-            let tempDataKabKota = []
-            let tempDataODP= []
-            let tempDataPDP= []
-            let tempDataConfirm= []
-            let tempDataUpdate= []
             let tempDataAll = []
-
             const $ = cheerio.load(result)
             $('tbody > tr').each(function(i, e) {
-                tempDataKabKota.push($($(e).find('td')[0]).text())
-                tempDataODP.push($($(e).find('td')[1]).text())
-                tempDataPDP.push($($(e).find('td')[2]).text())
-                tempDataConfirm.push($($(e).find('td')[3]).text())
-                tempDataUpdate.push($($(e).find('td')[4]).text())
-            })
-
-            for (var i=0; i<tempDataKabKota.length; i++) {
                 tempDataAll.push({
-                    lokasi: tempDataKabKota[i],
-                    odp: tempDataODP[i],
-                    pdp: tempDataPDP[i],
-                    terkonfirmasi: tempDataConfirm[i],
-                    update: tempDataUpdate[i]
+                    lokasi: $($(e).find('td')[0]).text(),
+                    odp: $($(e).find('td')[1]).text(),
+                    pdp: $($(e).find('td')[2]).text(),
+                    terkonfirmasi: $($(e).find('td')[3]).text(),
+                    update: $($(e).find('td')[4]).text()
                 })
-            }
-
+            })
             resolve(tempDataAll)
         })
         .catch(err => {
