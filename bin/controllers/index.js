@@ -1,3 +1,9 @@
+const semua = async (req, res) => {
+    const data = require('../lib/utils/getDataAllProv')
+    let getData = await data.getDataAllProv()
+    res.json({ data: getData })
+}
+
 const aceh = async (req, res) => {
     const data = require('../lib/utils/getDataAceh')
     let getData = await data.getDataAceh()
@@ -35,6 +41,7 @@ const ntb = async (req, res) => {
 }
 
 module.exports = {
+    semua,
     aceh,
     banten,
     jatim,

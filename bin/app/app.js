@@ -11,6 +11,7 @@ function AppServer() {
 
     this.app.get('/', (req, res) => {
         res.json([
+            { 'lokasi': 'SEMUA PROVINSI', 'link': `${req.protocol}://${req.get('host')}/semua` },
             { 'lokasi': 'ACEH', 'link': `${req.protocol}://${req.get('host')}/aceh` },
             { 'lokasi': 'BANTEN', 'link': `${req.protocol}://${req.get('host')}/banten` },
             { 'lokasi': 'JAWA TIMUR', 'link': `${req.protocol}://${req.get('host')}/jatim` },
@@ -20,6 +21,7 @@ function AppServer() {
         ])
     })
 
+    this.app.route('/semua').get(controllerGetData.semua)
     this.app.route('/aceh').get(controllerGetData.aceh)
     this.app.route('/banten').get(controllerGetData.banten)
     this.app.route('/jatim').get(controllerGetData.jatim)
